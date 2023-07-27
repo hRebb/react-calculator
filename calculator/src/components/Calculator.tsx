@@ -1,23 +1,40 @@
-import { useState } from "react";
-import { Operation } from "./Operation";
-import { Result } from "./Result";
+import { Component } from "react";
+import { CalculatorState } from "./utils/types";
+import Operation from "./Operation";
+import Result from "./Result";
 
-export function Calculator() {
-    const [result, setResult] = useState<number | null>(null);
-    const [operation, setOperation] = useState<string>('');
+class Calculator extends Component<{}, CalculatorState> {
+    constructor(props: {}) {
+        super(props);
+        this.state = {
+            result: "0",
+        };
+    }
 
-    const handleOperationChange = (newOperation: string) => {
-        setOperation(newOperation);
+    handleButtonClick = (value: string) => {
+        if (value === "=") {
+            try {
+                const calculateResult = eval(this.state.result);
+                this.setState({ result: String(calculateResult) });
+            } catch(error) {
+                this.setState({ result: "Error" });
+            }
+        }
+        else {
+            this.setState((prevState) => ({
+                result: prevState.result === "0" ? value: prevState.result + value,
+            }));
+        }
     };
 
-    const handleResultChange = (newResult: number) => {
-        setResult(newResult);
-    };
-
-    return (
-        <div>
-            <Operation onOperationChange={handleOperationChange} />
-            <Result operation={operation} onResultChange={handleResultChange} />
-        </div>
-    )
+    render() {
+        return (
+            <div>
+                <Result value={this.state.result} />
+                <Operation onClick={this.handleButtonClick} />
+            </div>
+        );
+    }
 }
+
+export default Calculator

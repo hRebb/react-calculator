@@ -1,34 +1,10 @@
-import {
-    useState,
-    useEffect
-} from 'react';
+import { Component } from "react";
+import { ResultProps } from "./utils/types";
 
-interface ResultProps {
-    operation: string;
-    onResultChange: (newResult: number) => void;
+class Result extends Component<ResultProps> {
+    render() {
+        return <input type="text" value={this.props.value} readOnly />
+    }
 }
 
-export function Result ({ operation, onResultChange }: ResultProps) {
-    const [result, setResult] = useState<number | null>(null);
-
-    useEffect(() => {
-        try {
-            const evaluatedResult = eval(operation);
-            setResult(evaluatedResult);
-            onResultChange(evaluatedResult);
-        } catch(error) {
-            setResult(null);
-            onResultChange(NaN);
-        }
-    }, [operation, onResultChange]);
-
-    return (
-        <div>
-            <p>
-                Result: {
-                    result !== null ? result : 'Invalid operation'
-                }
-            </p>
-        </div>
-    )
-}
+export default Result;
