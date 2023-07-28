@@ -1,0 +1,83 @@
+/* calculator.css */
+
+/* Container for the calculator */
+.calculator {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f6f6f6;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  /* Style for the input display */
+  .calculator input {
+    width: 75%;
+    padding: 20px;
+    font-size: 28px;
+    text-align: right;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #222;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  /* Style for the operation buttons */
+  .calculator button {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    background-color: #f9f9f9;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    outline: none;
+    font-size: 18px;
+    font-style: italic;
+  }
+  
+  .calculator button:hover {
+    background-color: #f2f2f2;
+  }
+
+  .calculator .reset-btn {
+    background-color: #e0362d;
+  }
+
+  .calculator .reset-btn:hover {
+    color: #e0362d;
+  }
+
+  .calculator .total-btn{
+    background-color: #f8a446;
+    color: #fff;
+  }
+  
+  .calculator .total-btn:hover {
+    color: #e08930;
+  }
+
+  .calculator .ops-btn{
+    background-color: #17e28d;
+    color: #fff;
+  }
+  
+  .calculator .ops-btn:hover {
+    color: #17e28d;
+  }
+
+
+  
+  /* Flex container for the button grid */
+  .calculator .button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+  }

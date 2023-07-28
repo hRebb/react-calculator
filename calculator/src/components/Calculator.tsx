@@ -2,6 +2,7 @@ import { Component } from "react";
 import { CalculatorState } from "./utils/types";
 import Operation from "./Operation";
 import Result from "./Result";
+import './calculator.css';
 
 class Calculator extends Component<{}, CalculatorState> {
     constructor(props: {}) {
@@ -32,7 +33,7 @@ class Calculator extends Component<{}, CalculatorState> {
 
     render() {
         return (
-            <div>
+            <div className="calculator">
                 <Result value={this.state.result} />
                 <Operation onClick={this.handleButtonClick} />
             </div>
