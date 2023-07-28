@@ -7,5 +7,8 @@ export interface ResultProps {
 }
 
 export interface CalculatorState {
-    result: string;
+    currentValue: string;
+    prevValue: string;
+    operator: string;
+    shouldReset: boolean;
 }
