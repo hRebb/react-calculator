@@ -24,6 +24,7 @@ class Operation extends Component<OperationProps> {
                 <button onClick={() => this.handleClick("*")}>*</button>
                 <button onClick={() => this.handleClick("/")}>/</button>
                 <button onClick={() => this.handleClick("=")}>=</button>
+                <button onClick={() => this.handleClick("C")}>C</button>
             </div>
         )
     }

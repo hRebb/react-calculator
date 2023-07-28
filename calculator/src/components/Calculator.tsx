@@ -19,6 +19,9 @@ class Calculator extends Component<{}, CalculatorState> {
             } catch(error) {
                 this.setState({ result: "Error" });
             }
+        } 
+        else if (value === "C") {
+            this.setState({ result: "0" })
         }
         else {
             this.setState((prevState) => ({
